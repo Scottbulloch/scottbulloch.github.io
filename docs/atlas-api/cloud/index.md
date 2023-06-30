@@ -3,7 +3,7 @@ custom_edit_url: null
 sidebar_position: 1
 ---
 
-# Snow Atlas Cloud Visibility API
+# Snow Atlas Cloud Cost Visibility API
 
 # Requirements
     SKU SO-CLD-H
