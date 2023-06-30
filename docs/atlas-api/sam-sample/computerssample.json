@@ -1,0 +1,3926 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SAM computers",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/sam/estate/v1/computers-metering": {
+      "get": {
+        "description": "Returns a collection of metric tracking data.",
+        "operationId": "computers-metering",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplicationMetering"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/metering": {
+      "get": {
+        "description": "Returns a collection of metric tracking data for a given computer.",
+        "operationId": "metering",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplicationMetering"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/applications": {
+      "get": {
+        "description": "Returns a collection of applications for a given computer.",
+        "operationId": "applications",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplications"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/applications/{applicationid}": {
+      "get": {
+        "description": "Returns an application record for a given computer.",
+        "operationId": "applications2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "applicationid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerApplicationsDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-applications": {
+      "get": {
+        "description": "Returns a collection of applications for all computers.",
+        "operationId": "computers-applications",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplications"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-application-usage": {
+      "get": {
+        "description": "Returns a collection of application usage data.",
+        "operationId": "computers-application-usage",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplicationUsage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-application-user-usage": {
+      "get": {
+        "description": "Returns a collection of application usage data.",
+        "operationId": "computers-application-user-usage",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfUserApplicationUsage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-application-usage/summary": {
+      "get": {
+        "description": "Returns a collection of application usage summaries.",
+        "operationId": "summary",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerApplicationUsageSummary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/contracts": {
+      "get": {
+        "description": "Returns a collection of contracts for a given computer",
+        "operationId": "contracts",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerContract"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/costs": {
+      "get": {
+        "description": "Get Computer's total cost",
+        "operationId": "costs",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerCosts"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/displayadapters": {
+      "get": {
+        "description": "Returns a collection of display adapter for a given computer.",
+        "operationId": "displayadapters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerDisplayAdapter"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/harddrives": {
+      "get": {
+        "description": "Returns a collection of hard drives for a given computer.",
+        "operationId": "harddrives",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerDrive"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/opticaldrives": {
+      "get": {
+        "description": "Returns a collection of optical drives for a given computer.",
+        "operationId": "opticaldrives",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerDrive"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware": {
+      "get": {
+        "description": "Returns details of hardware for a given computer.",
+        "operationId": "hardware",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerHardwareDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/disks/logical": {
+      "get": {
+        "description": "Returns a collection of logical disks for a given computer.",
+        "operationId": "logical",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerLogicalDisk"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/logonhistory": {
+      "get": {
+        "description": "Returns a collection of computer logon histories.",
+        "operationId": "logonhistory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerLogonHistory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-logonhistory/{userid}": {
+      "get": {
+        "description": "Returns a collection of computer logon histories for a given user.",
+        "operationId": "computers-logonhistory",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerLogonHistory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/logonhistory/{userid}": {
+      "get": {
+        "description": "Returns details of logon histories for a given computer and user.",
+        "operationId": "logonhistory2",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerLogonHistoryDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/monitors": {
+      "get": {
+        "description": "Returns a collection of monitors for a given computer.",
+        "operationId": "monitors",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerMonitor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/networkadapters": {
+      "get": {
+        "description": "Returns a collection of network adapters for a computer.",
+        "operationId": "networkadapters",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerNetworkAdapters"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-networkadapters": {
+      "get": {
+        "description": "Returns a collection of network adapters.",
+        "operationId": "computers-networkadapters",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerNetworkAdapters"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/cpu": {
+      "get": {
+        "description": "Returns a collection of computer processors.",
+        "operationId": "cpu",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerProcessor"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/hardware/cpu/socketmap": {
+      "get": {
+        "description": "Returns details of socket maps for a given computer.",
+        "operationId": "socketmap",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerSocketMapDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/registry": {
+      "get": {
+        "description": "Returns a collection of computer registries.",
+        "operationId": "registry",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerRegistry"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}": {
+      "get": {
+        "description": "Returns details of a given computer.",
+        "operationId": "computers",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputerDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers": {
+      "get": {
+        "description": "Returns a collection of computers.",
+        "operationId": "computers2",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputer"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers/{id}/environment-variables": {
+      "get": {
+        "description": "Returns a collection of environment variable for a given computer.",
+        "operationId": "environment-variables",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerEnvironmentVariables"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/sam/estate/v1/computers-environment-variables": {
+      "get": {
+        "description": "Returns a collection of computer environment variables.",
+        "operationId": "computers-environment-variables",
+        "parameters": [
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "page_number",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK - Your request succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredResponseWithLinksOfComputerEnvironmentVariables"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Your request is invalid or improperly formed. Consequently, the API server could not understand your request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The operation you requested failed because a resource associated with your request could not be found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - Your request failed due to an internal error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "sam.computer.r"
+            ]
+          }
+        ]
+      }
+    },
+    "/api/computers/meta/http": {
+      "get": {
+        "description": "",
+        "operationId": "http",
+        "responses": {
+          "default": {
+            "description": "default"
+          }
+        },
+        "security": [
+          {
+            "BearerAuth": [
+              "meta.http.r"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PaginationResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "page_size": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "page_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total_pages": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "total_items": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "Link": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "href": {
+            "type": "string",
+            "nullable": true
+          },
+          "rel": {
+            "type": "string",
+            "nullable": true
+          },
+          "method": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BaseResponse": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "_links": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Link"
+            }
+          }
+        }
+      },
+      "ComputerApplicationMetering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "metricId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "initialRequirement": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "includedInBundle": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "outsideMetricPeriod": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "secondaryUseRightsDesktopLaptop": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "secondaryUseRightsDevice": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "extendedCoverageForDcc": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "extendedCoverageForHost": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "multipleVersionEdition": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "virtualDesktopInfrastructure": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minimumRequirement": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "coreFactor": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "physicalHost": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "requirement": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "computerAppExclusions": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "windowsServer": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "virtualMachine": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "unknownPhysicalHost": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "manuallyExcluded": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "requirementMoved": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "windowsServerFlag": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "sqlServer": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerApplicationMetering": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerApplicationMetering"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ErrorContent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ErrorContent"
+              }
+            ]
+          }
+        }
+      },
+      "ComputerApplications": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "bundleApplicationId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "firstDiscovered": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "lastUsed": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "usedCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "averageUsedTime": {
+                "type": "string",
+                "nullable": true
+              },
+              "isVirtual": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isInstalled": {
+                "type": "boolean",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerApplications": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerApplications"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerApplicationsDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "bundleApplicationId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "firstDiscovered": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "firstUsed": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "lastUsed": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "usedCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "usedUser": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "usedMinutes": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "usedDays": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "isInstalled": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isOEM": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isMSDN": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isVirtual": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isOverridden": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "packageGUID": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "isRecognized": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isRegistry": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "averageUsedTime": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ComputerApplicationUsage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "userId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "bundleApplicationId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "firstUsed": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "lastUsedDate": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "usedMinutes": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "usedDays": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "isInstalled": {
+                "type": "boolean",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerApplicationUsage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerApplicationUsage"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserApplicationUsage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "userId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "lastUsedDate": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfUserApplicationUsage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/UserApplicationUsage"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerApplicationUsageSummary": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "applicationId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "computers": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "users": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "installations": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerApplicationUsageSummary": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerApplicationUsageSummary"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerContract": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "contractId": {
+                "type": "string",
+                "format": "guid"
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerContract": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerContract"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerCosts": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "vendor": {
+                "type": "string",
+                "nullable": true
+              },
+              "purchaseDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "purchasePrice": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "purchaseCurrency": {
+                "type": "string",
+                "nullable": true
+              },
+              "invoiceReference": {
+                "type": "string",
+                "nullable": true
+              },
+              "totalCostOfInstalledApplications": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "totalCost": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ComputerDisplayAdapter": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "currentResolution": {
+                "type": "string",
+                "nullable": true
+              },
+              "maxResolution": {
+                "type": "string",
+                "nullable": true
+              },
+              "isUpdated": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "ComputerDrive": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "diskSizeMB": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isUpdated": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerDrive": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerDrive"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerHardwareDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "processorCount": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "coreCount": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "processorType": {
+                "type": "string",
+                "nullable": true
+              },
+              "processorSpeed": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "memorySlots": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "memorySlotsAvailable": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "physicalMemory": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "systemDiskSpace": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "systemDiskSpaceAvailable": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "totalDiskSpace": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "totalDiskSpaceAvailable": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "totalDiskSpaceUsed": {
+                "type": "integer",
+                "format": "int64",
+                "nullable": true
+              },
+              "socketCount": {
+                "type": "integer",
+                "format": "byte",
+                "nullable": true
+              },
+              "isSocketCountManualOverrideEnabled": {
+                "type": "boolean"
+              },
+              "chipModulesPerProcessor": {
+                "type": "integer",
+                "format": "byte",
+                "nullable": true
+              },
+              "processorManufacturer": {
+                "type": "string",
+                "nullable": true
+              },
+              "logicalProcessorCount": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ComputerLogicalDisk": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "volumeName": {
+                "type": "string",
+                "nullable": true
+              },
+              "isSystemDisk": {
+                "type": "boolean"
+              },
+              "diskSizeMB": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "freeSpaceMB": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isUpdated": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerLogicalDisk": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerLogicalDisk"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerLogonHistoryDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "userId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "lastLogon": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "logonCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "ComputerLogonHistory": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ComputerLogonHistoryDetails"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerLogonHistory": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerLogonHistory"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerMonitor": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "maxResolution": {
+                "type": "string",
+                "nullable": true
+              },
+              "isUpdated": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "ComputerNetworkAdapters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "ipAddress": {
+                "type": "string",
+                "nullable": true
+              },
+              "macAddress": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerNetworkAdapters": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerNetworkAdapters"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerProcessor": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "processorCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "coreCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "processorType": {
+                "type": "string",
+                "nullable": true
+              },
+              "processorSpeed": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "processorManufacturer": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerProcessor": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerProcessor"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerSocketMapDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "manufacturer": {
+                "type": "string",
+                "nullable": true
+              },
+              "model": {
+                "type": "string",
+                "nullable": true
+              },
+              "socketCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "ComputerRegistry": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "registryKeyName": {
+                "type": "string",
+                "nullable": true
+              },
+              "registryValueName": {
+                "type": "string",
+                "nullable": true
+              },
+              "registryValueData": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerRegistry": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerRegistry"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerDetails": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "guid"
+              },
+              "scanIdentifier": {
+                "type": "string",
+                "nullable": true
+              },
+              "hostName": {
+                "type": "string",
+                "nullable": true
+              },
+              "domain": {
+                "type": "string",
+                "nullable": true
+              },
+              "lastScanDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "biosSerialNumber": {
+                "type": "string",
+                "nullable": true
+              },
+              "biosVersion": {
+                "type": "string",
+                "nullable": true
+              },
+              "biosDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "manufacturer": {
+                "type": "string",
+                "nullable": true
+              },
+              "model": {
+                "type": "string",
+                "nullable": true
+              },
+              "isPortable": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "infoTransferDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "clientInstallDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "clientVersion": {
+                "type": "string",
+                "nullable": true
+              },
+              "clientSiteName": {
+                "type": "string",
+                "nullable": true
+              },
+              "clientConfigurationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "scannerVersion": {
+                "type": "string",
+                "nullable": true
+              },
+              "quarantineDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "isQuarantineManagementDisabled": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "operatingSystem": {
+                "type": "string",
+                "nullable": true
+              },
+              "operatingSystemServicePack": {
+                "type": "string",
+                "nullable": true
+              },
+              "operatingSystemSerialNumber": {
+                "type": "string",
+                "nullable": true
+              },
+              "ipAddress": {
+                "type": "string",
+                "nullable": true
+              },
+              "isVirtual": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hostComputerId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "siblingComputerId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "isUpdated": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "is64bit": {
+                "type": "boolean"
+              },
+              "isServer": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "hypervisorName": {
+                "type": "string",
+                "nullable": true
+              },
+              "isVdi": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "processorValueUnit": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "reportingDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "architecture": {
+                "type": "string",
+                "nullable": true
+              },
+              "organizationId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "status": {
+                "type": "string",
+                "nullable": true
+              },
+              "isAutoEditingDisabled": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "purchaseDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "purchaseValue": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "purchaseCurrency": {
+                "type": "string",
+                "nullable": true
+              },
+              "purchaseValueBase": {
+                "type": "number",
+                "format": "decimal",
+                "nullable": true
+              },
+              "invoiceReference": {
+                "type": "string",
+                "nullable": true
+              },
+              "notes": {
+                "type": "string",
+                "nullable": true
+              },
+              "securityCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "updatedDate": {
+                "type": "string",
+                "format": "date-time",
+                "nullable": true
+              },
+              "isIncludedInWindowsServerRequirement": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "mostRecentUser": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "mostFrequentUser": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "vendor": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "Computer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "guid"
+              },
+              "hostName": {
+                "type": "string",
+                "nullable": true
+              },
+              "mostFrequentUser": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "mostRecentUser": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              },
+              "manufacturer": {
+                "type": "string",
+                "nullable": true
+              },
+              "isPortable": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isVirtual": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "isServer": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "model": {
+                "type": "string",
+                "nullable": true
+              },
+              "operatingSystem": {
+                "type": "string",
+                "nullable": true
+              },
+              "vendor": {
+                "type": "string",
+                "nullable": true
+              },
+              "domain": {
+                "type": "string",
+                "nullable": true
+              },
+              "ipAddress": {
+                "type": "string",
+                "nullable": true
+              },
+              "isVDI": {
+                "type": "boolean",
+                "nullable": true
+              },
+              "lastScanDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "status": {
+                "type": "string",
+                "nullable": true
+              },
+              "organizationId": {
+                "type": "string",
+                "format": "guid",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Computer"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ComputerEnvironmentVariables": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "computerId": {
+                "type": "string",
+                "format": "guid"
+              },
+              "environmentVariableName": {
+                "type": "string",
+                "nullable": true
+              },
+              "environmentVariableValue": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FilteredResponseWithLinksOfComputerEnvironmentVariables": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResponse"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ComputerEnvironmentVariables"
+                }
+              },
+              "pagination": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaginationResponse"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
