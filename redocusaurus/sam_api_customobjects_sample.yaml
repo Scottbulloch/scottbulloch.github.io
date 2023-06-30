@@ -1,0 +1,674 @@
+openapi: 3.0.0
+info:
+  title: SAM custom objects
+  version: 1.0.0
+paths:
+  /api/sam/estate/v1/customobjects/{id}/propertyvalues:
+    get:
+      description: Returns a collection of property values for a custom object.
+      operationId: propertyvalues
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilteredResponseWithLinksOfPropertyValue'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjects/{id}/propertyvalues/{valueId}:
+    get:
+      description: Returns details of a given property value for a custom object.
+      operationId: propertyvalues2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: valueId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyValueDetails'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjects:
+    get:
+      description: Returns a collection of custom objects.
+      operationId: customobjects
+      parameters:
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilteredResponseWithLinksOfCustomObject'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjects/{id}:
+    get:
+      description: Returns details of a given custom object.
+      operationId: customobjects2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectDetails'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjecttypes/{typeid}/properties:
+    get:
+      description: Returns a collection of properties for a custom object.
+      operationId: properties
+      parameters:
+        - name: typeid
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilteredResponseWithLinksOfProperty'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjecttypes/{typeid}/properties/{propertyid}:
+    get:
+      description: Returns details of properties for a given custom object.
+      operationId: properties2
+      parameters:
+        - name: typeid
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: propertyid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertyDetails'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjecttypes:
+    get:
+      description: Returns a collection of custom object types.
+      operationId: customobjecttypes
+      parameters:
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfCustomObjectType
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/sam/estate/v1/customobjecttypes/{typeid}:
+    get:
+      description: Returns details of a given custom object type.
+      operationId: customobjecttypes2
+      parameters:
+        - name: typeid
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomObjectTypeDetails'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.customobject.r
+  /api/customobjects/meta/http:
+    get:
+      description: ''
+      operationId: http
+      responses:
+        default:
+          description: default
+      security:
+        - BearerAuth:
+            - meta.http.r
+components:
+  schemas:
+    Pagination:
+      type: object
+      additionalProperties: false
+      properties:
+        page_size:
+          type: integer
+          format: int32
+        page_number:
+          type: integer
+          format: int32
+        total_pages:
+          type: integer
+          format: int32
+          nullable: true
+    Link:
+      type: object
+      additionalProperties: false
+      properties:
+        href:
+          type: string
+          nullable: true
+        rel:
+          type: string
+          nullable: true
+        method:
+          type: string
+          nullable: true
+    PropertyValue:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        objectId:
+          type: string
+          format: guid
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    FilteredResponseWithLinksOfPropertyValue:
+      type: object
+      additionalProperties: false
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/PropertyValue'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    ErrorContent:
+      type: object
+      additionalProperties: false
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    ErrorResponse:
+      type: object
+      additionalProperties: false
+      properties:
+        error:
+          $ref: '#/components/schemas/ErrorContent'
+    PropertyValueDetails:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        propertyId:
+          type: string
+          format: guid
+        objectId:
+          type: string
+          format: guid
+        value:
+          type: string
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    CustomObject:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        objectName:
+          type: string
+          nullable: true
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    FilteredResponseWithLinksOfCustomObject:
+      type: object
+      additionalProperties: false
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObject'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    CustomObjectDetails:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        objectName:
+          type: string
+          nullable: true
+        computerId:
+          type: string
+          format: guid
+          nullable: true
+        userId:
+          type: string
+          format: guid
+          nullable: true
+        createdDate:
+          type: string
+          format: date-time
+        updatedDate:
+          type: string
+          format: date-time
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    Property:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        typeId:
+          type: string
+          format: guid
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    FilteredResponseWithLinksOfProperty:
+      type: object
+      additionalProperties: false
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Property'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    PropertyDetails:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        typeId:
+          type: string
+          format: guid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        isMandatory:
+          type: boolean
+        defaultValue:
+          type: string
+          nullable: true
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    CustomObjectType:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        name:
+          type: string
+          nullable: true
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    FilteredResponseWithLinksOfCustomObjectType:
+      type: object
+      additionalProperties: false
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomObjectType'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    CustomObjectTypeDetails:
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          format: guid
+        name:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        canAttachToContract:
+          type: boolean
+        createdDate:
+          type: string
+          format: date-time
+        updatedDate:
+          type: string
+          format: date-time
+        _links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

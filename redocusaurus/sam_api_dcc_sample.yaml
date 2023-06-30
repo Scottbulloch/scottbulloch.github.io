@@ -1,0 +1,782 @@
+openapi: 3.0.0
+info:
+  title: SAM Datacenters/Clusters
+  version: 1.0.0
+paths:
+  /api/sam/estate/v1/dcc/{id}/applications:
+    get:
+      description: >-
+        Returns a collection of datacenter/cluster members and links to computer
+        applications.
+      operationId: applications
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfDataCenterClusterMemberResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc:
+    get:
+      description: Returns a collection of datacenters/clusters.
+      operationId: dcc
+      parameters:
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfDataCenterClusterResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc/{id}:
+    get:
+      description: Returns a datacenter/cluster for a given unique identifier.
+      operationId: dcc2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfHypervisorTypeResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc/{id}/history:
+    get:
+      description: Returns a collection of datacenter/cluster histories.
+      operationId: history
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfDataCenterClusterHistoryResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc/{id}/members:
+    get:
+      description: Returns a collection of datacenter/cluster members.
+      operationId: members
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfDataCenterClusterMemberResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc/{id}/members/{memberId}:
+    get:
+      description: Returns a datacenter/cluster member for a given unique identifier.
+      operationId: members2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataCenterClusterMemberResponse'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc/{id}/members/{memberId}/features:
+    get:
+      description: Returns a collection of datacenter/cluster member features.
+      operationId: features
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfDataCenterClusterMemberFeatureResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc-hypervisors:
+    get:
+      description: Returns a collection of hypervisor types.
+      operationId: dcc-hypervisors
+      parameters:
+        - name: page_size
+          in: query
+          schema:
+            type: integer
+        - name: page_number
+          in: query
+          schema:
+            type: integer
+        - name: filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: >-
+                  #/components/schemas/FilteredResponseWithLinksOfHypervisorTypeResponse
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/sam/estate/v1/dcc-hypervisors/{id}:
+    get:
+      description: Returns a hypervisor type for a given unique hypervisor type name.
+      operationId: dcc-hypervisors2
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK - Your request succeeded.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HypervisorTypeResponse'
+        '400':
+          description: >-
+            Bad Request - Your request is invalid or improperly formed.
+            Consequently, the API server could not understand your request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: >-
+            Not Found - The operation you requested failed because a resource
+            associated with your request could not be found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: >-
+            Internal Server Error - Your request failed due to an internal
+            error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      security:
+        - BearerAuth:
+            - sam.estate.dcc.r
+  /api/dcc/meta/http:
+    get:
+      description: ''
+      operationId: http
+      responses:
+        default:
+          description: default
+      security:
+        - BearerAuth:
+            - meta.http.r
+components:
+  schemas:
+    PaginationResponse:
+      type: object
+      description: >-
+        Generic response class for the pagination part.
+
+        Properties are annotated using DataMemberAttribute so that we're aligned
+        with REST style guide regarding the json payload.
+      additionalProperties: false
+      properties:
+        page_size:
+          type: integer
+          description: Gets or sets the page size.
+          format: int32
+        page_number:
+          type: integer
+          description: Gets or sets the page number.
+          format: int32
+        total_pages:
+          type: integer
+          description: Gets or sets the total pages count.
+          format: int32
+          nullable: true
+    Link:
+      type: object
+      additionalProperties: false
+      properties:
+        href:
+          type: string
+          nullable: true
+        rel:
+          type: string
+          nullable: true
+        method:
+          type: string
+          nullable: true
+    BaseResponse:
+      type: object
+      description: Base response class.
+      x-abstract: true
+      additionalProperties: false
+      properties:
+        _links:
+          type: array
+          description: Collection of Link to related resources.
+          items:
+            $ref: '#/components/schemas/Link'
+    DataCenterClusterMemberResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Response class for datacenter/cluster member.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              description: Gets or sets the unique identifier.
+              format: guid
+            computerId:
+              type: string
+              description: Gets or sets the computer identifier.
+              format: guid
+            sourceId:
+              type: integer
+              description: Gets or sets the source identifier.
+              format: int32
+              nullable: true
+    FilteredResponseWithLinksOfDataCenterClusterMemberResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Generic response class supporting filtering and including links.
+          additionalProperties: false
+          properties:
+            items:
+              type: array
+              description: Gets or sets the items.
+              items:
+                $ref: '#/components/schemas/DataCenterClusterMemberResponse'
+            pagination:
+              description: Gets or sets the pagination data.
+              oneOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+    ErrorContent:
+      type: object
+      description: Contains error content.
+      additionalProperties: false
+      properties:
+        code:
+          type: integer
+          description: Gets or sets the code.
+          format: int32
+        message:
+          type: string
+          description: Gets or sets the message.
+    ErrorResponse:
+      type: object
+      description: Response class for errors.
+      additionalProperties: false
+      properties:
+        error:
+          description: Gets or sets the error content.
+          oneOf:
+            - $ref: '#/components/schemas/ErrorContent'
+    DataCenterClusterResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Response class for datacenter/cluster item.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              description: The unique identifier.
+              format: guid
+            controllerId:
+              type: integer
+              description: Gets or sets the controller identifier.
+              format: int32
+              nullable: true
+            name:
+              type: string
+              description: Gets or sets the name.
+              nullable: true
+            description:
+              type: string
+              description: Gets or sets the description.
+              nullable: true
+            organizationId:
+              type: string
+              description: Gets or sets the organization identifier.
+              format: guid
+            virtualPeakIntervalDays:
+              type: integer
+              description: Gets or sets the virtual peak interval in days.
+              format: int32
+              nullable: true
+            virtualPeakIntervalType:
+              type: integer
+              description: Gets or sets the virtual peak interval type.
+              format: int32
+              nullable: true
+            virtualPeakCount:
+              type: integer
+              description: Gets or sets the virtual peak count.
+              format: int32
+              nullable: true
+            virtualPeakDate:
+              type: string
+              description: Gets or sets the virtual peak date.
+              format: date-time
+              nullable: true
+            isAutoGenerated:
+              type: boolean
+              description: Gets or sets a flag indicating whether it is auto-generated.
+              nullable: true
+            hypervisor:
+              type: string
+              description: Gets or sets the hypervisor type id.
+              format: guid
+            isHighAvailability:
+              type: boolean
+              description: Gets or sets a flag indicating whether it has high availability.
+            isVMwareDRS:
+              type: boolean
+              description: Gets or sets a flag indicating whether it is a VMware DRS.
+            isHypervisorFromSIM:
+              type: boolean
+              description: >-
+                Gets or sets a flag indicating whether the hypervisor is
+                inventoried using SIM.
+    FilteredResponseWithLinksOfDataCenterClusterResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Generic response class supporting filtering and including links.
+          additionalProperties: false
+          properties:
+            items:
+              type: array
+              description: Gets or sets the items.
+              items:
+                $ref: '#/components/schemas/DataCenterClusterResponse'
+            pagination:
+              description: Gets or sets the pagination data.
+              oneOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+    HypervisorTypeResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Response class for hypervisor type.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              description: Gets or sets the id.
+              format: guid
+              nullable: true
+            name:
+              type: string
+              description: Gets or sets the name.
+              nullable: true
+    FilteredResponseWithLinksOfHypervisorTypeResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Generic response class supporting filtering and including links.
+          additionalProperties: false
+          properties:
+            items:
+              type: array
+              description: Gets or sets the items.
+              items:
+                $ref: '#/components/schemas/HypervisorTypeResponse'
+            pagination:
+              description: Gets or sets the pagination data.
+              oneOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+    DataCenterClusterHistoryResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Response class for datacenter/cluster history details.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              description: Gets or sets the unique identifier.
+              format: guid
+            virtualMachineDate:
+              type: string
+              description: Gets or sets the date of the virtual machines state.
+              format: date-time
+            virtualMachineCount:
+              type: integer
+              description: Gets or sets the virtual machines count.
+              format: int32
+    FilteredResponseWithLinksOfDataCenterClusterHistoryResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Generic response class supporting filtering and including links.
+          additionalProperties: false
+          properties:
+            items:
+              type: array
+              description: Gets or sets the items.
+              items:
+                $ref: '#/components/schemas/DataCenterClusterHistoryResponse'
+            pagination:
+              description: Gets or sets the pagination data.
+              oneOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+    DataCenterClusterMemberFeatureResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Response class for datacenter/cluster member feature.
+          additionalProperties: false
+          properties:
+            id:
+              type: string
+              description: Gets or sets the unique identifier.
+              format: guid
+            computerId:
+              type: string
+              description: Gets or sets the computer identifier.
+              format: guid
+            featureName:
+              type: string
+              description: Gets or sets the feature name.
+              nullable: true
+            isRequiresLicense:
+              type: boolean
+              description: Gets or sets a flag indicating whether it requires a license.
+            isActive:
+              type: boolean
+              description: Gets or sets a flag indicating whether it is active.
+            sourceId:
+              type: integer
+              description: Gets or sets the source identifier.
+              format: int32
+              nullable: true
+    FilteredResponseWithLinksOfDataCenterClusterMemberFeatureResponse:
+      allOf:
+        - $ref: '#/components/schemas/BaseResponse'
+        - type: object
+          description: Generic response class supporting filtering and including links.
+          additionalProperties: false
+          properties:
+            items:
+              type: array
+              description: Gets or sets the items.
+              items:
+                $ref: '#/components/schemas/DataCenterClusterMemberFeatureResponse'
+            pagination:
+              description: Gets or sets the pagination data.
+              oneOf:
+                - $ref: '#/components/schemas/PaginationResponse'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
